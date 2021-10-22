@@ -1,8 +1,7 @@
-
 package com.rentaMaquina.maquinaria.app.controllers;
 
-import com.rentaMaquina.maquinaria.app.entities.Message;
-import com.rentaMaquina.maquinaria.app.services.MessageService;
+import com.rentaMaquina.maquinaria.app.entities.Category;
+import com.rentaMaquina.maquinaria.app.services.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,31 +18,31 @@ import org.springframework.web.bind.annotation.RestController;
  * @author nacai
  */
 @RestController
-@RequestMapping("Message")
-public class MessageController {
+@RequestMapping("Category")
+public class CategoryController {
     
     @Autowired
-    private MessageService service;
+    private CategoryService service;
     
     @GetMapping("/all")
-    public List<Message> findAllMessages(){
-        return service.getMessages();
+    public List<Category> findAllCategory(){
+        return service.getCategories();
     }
     
     @PostMapping("/save")
-    public ResponseEntity addMessage(@RequestBody Message message){
-        service.saveMessage(message);
+    public ResponseEntity addCategory(@RequestBody Category category){
+        service.saveCategory(category);
         return ResponseEntity.status(201).build();
     }
     @PutMapping("/update")
-    public ResponseEntity updateMessage(@RequestBody Message message){
-        service.updateMesage(message);
+    public ResponseEntity updateCategory(@RequestBody Category category){
+        service.updateCategory(category);
         return ResponseEntity.status(201).build();
     }
     
     @DeleteMapping("/delete")
-    public ResponseEntity deleteMachine(@RequestBody Message message){
-        service.deleteMessage(message.getIdMessage());
+    public ResponseEntity deleteCategory(@RequestBody Category category){
+        service.deleteCategory(category.getId());
         return ResponseEntity.status(204).build();
     }
     

@@ -29,10 +29,9 @@ public class ClientService {
     }
     // peticion put para actualizar  (PUT)
     public Client updateClient(Client client){
-        Client existingClient = repository.findById(client.getId()).orElse(null);
+        Client existingClient = repository.findById(client.getIdClient()).orElse(null);
         existingClient.setName(client.getName());
         existingClient.setEmail(client.getEmail());
-        existingClient.setAge(client.getAge());
         return repository.save(existingClient);
     
     }

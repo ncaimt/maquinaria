@@ -32,8 +32,7 @@ public class MachineService {
         Machine existingMachine = repository.findById(machine.getId()).orElse(null);
         existingMachine.setName(machine.getName());
         existingMachine.setBrand(machine.getBrand());
-        existingMachine.setModel(machine.getModel());
-        existingMachine.setCategory_id(machine.getCategory_id());
+        existingMachine.setYear(machine.getYear());
         return repository.save(existingMachine);
     
     }

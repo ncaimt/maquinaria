@@ -43,7 +43,7 @@ public class ClientController {
     
     @DeleteMapping("/delete")
     public ResponseEntity deleteClient(@RequestBody Client client){
-        service.deleteClient(client.getId());
+        service.deleteClient(client.getIdClient());
         return ResponseEntity.status(204).build();
     }
     
