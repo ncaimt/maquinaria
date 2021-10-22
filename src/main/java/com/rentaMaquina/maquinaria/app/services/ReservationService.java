@@ -24,6 +24,7 @@ public class ReservationService {
     
     // `POST crear or registrar
     public Reservation saveReservation(Reservation reservation){
+        reservation.setStatus("created");
         return repository.save(reservation);
         
     }
